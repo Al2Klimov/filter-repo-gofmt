@@ -17,7 +17,7 @@ except NameError:
     blob = Blob()
 
 
-if search(rb'^package \w+$', blob.data, MULTILINE):
+if search(rb'^\s*package\s+\w+', blob.data, MULTILINE):
     proc = Popen(['gofmt'], stdin=PIPE, stdout=PIPE)
     (out, _) = proc.communicate(blob.data)
 
